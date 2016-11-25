@@ -330,6 +330,7 @@
 				97324D751DE88AE30014F53E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

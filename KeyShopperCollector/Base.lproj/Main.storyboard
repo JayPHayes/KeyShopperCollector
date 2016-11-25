@@ -38,7 +38,7 @@
                     <navigationItem key="navigationItem" id="za4-u8-9aZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ARQ-qR-dV2">
                             <connections>
-                                <segue destination="Npl-JD-hjl" kind="show" id="faa-o7-atE"/>
+                                <segue destination="Npl-JD-hjl" kind="show" identifier="itemSegue" id="faa-o7-atE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -91,9 +91,24 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Egh-G1-E3F">
                                 <rect key="frame" x="278" y="316" width="51" height="31"/>
                             </switch>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zq-uP-2TT">
+                                <rect key="frame" x="138" y="372" width="100" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="L80-NI-PhK"/>
+                                </constraints>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAddTapped:" destination="Npl-JD-hjl" eventType="touchUpInside" id="7hN-fM-hmv"/>
+                                    <action selector="btnDeleteItem:" destination="Npl-JD-hjl" eventType="touchUpInside" id="Wtj-vd-r9R"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="0Zq-uP-2TT" firstAttribute="top" secondItem="8Wx-Um-ehc" secondAttribute="bottom" constant="26" id="Dc7-58-9u2"/>
                             <constraint firstItem="E0r-tg-PgE" firstAttribute="top" secondItem="Lio-5L-Ib2" secondAttribute="bottom" constant="20" id="KAD-LZ-Dg1"/>
                             <constraint firstItem="8Wx-Um-ehc" firstAttribute="top" secondItem="NFr-iA-47L" secondAttribute="bottom" constant="20" id="KtJ-vz-0KS"/>
                             <constraint firstItem="NFr-iA-47L" firstAttribute="top" secondItem="E0r-tg-PgE" secondAttribute="bottom" constant="32" id="Q0S-bJ-nvd"/>
@@ -101,6 +116,7 @@
                             <constraint firstItem="Egh-G1-E3F" firstAttribute="leading" secondItem="8Wx-Um-ehc" secondAttribute="trailing" constant="40" id="bes-D5-dQj"/>
                             <constraint firstItem="E0r-tg-PgE" firstAttribute="centerX" secondItem="f4f-1t-eXD" secondAttribute="centerX" id="hVr-jb-YKk"/>
                             <constraint firstItem="NFr-iA-47L" firstAttribute="width" secondItem="E0r-tg-PgE" secondAttribute="width" id="jls-FW-thM"/>
+                            <constraint firstItem="0Zq-uP-2TT" firstAttribute="centerX" secondItem="f4f-1t-eXD" secondAttribute="centerX" id="jpa-uF-CDQ"/>
                             <constraint firstItem="Egh-G1-E3F" firstAttribute="top" secondItem="NFr-iA-47L" secondAttribute="bottom" constant="20" id="o6g-ds-lS8"/>
                             <constraint firstItem="NFr-iA-47L" firstAttribute="centerX" secondItem="f4f-1t-eXD" secondAttribute="centerX" id="uXa-A7-laV"/>
                         </constraints>
@@ -120,6 +136,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnAddUpdateButton" destination="8Wx-Um-ehc" id="1Rh-dB-1NN"/>
+                        <outlet property="btnDelete" destination="0Zq-uP-2TT" id="kRv-dR-Hjs"/>
                         <outlet property="imgItem" destination="E0r-tg-PgE" id="13O-ak-Y2t"/>
                         <outlet property="isLibrary" destination="Egh-G1-E3F" id="pI7-r5-iPD"/>
                         <outlet property="txtItemName" destination="NFr-iA-47L" id="lf6-CF-9Nc"/>

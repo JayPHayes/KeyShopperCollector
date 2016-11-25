@@ -29,7 +29,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         do {
             try items = context.fetch(MasterItems.fetchRequest())
             tableView.reloadData()
-            print(items)
         } catch  {
             print("ERROR")
         }
@@ -38,6 +37,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //MARK:  - Table Datasource and deletegage
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        performSegue(withIdentifier: "itemSegue", sender: item)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! ItemViewController
+        nextVC.item = sender as? MasterItems
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
